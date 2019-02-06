@@ -1,19 +1,22 @@
+#creating the nodes
 class node:
 	def _init_(self,vaue=None):
 		self.value=value
 		self.left_child=None
 		self.right_child=None
 
+
 class binary_search_tree:
 	def _init_(self):
-		self.root=None
+		self.root=None #creating our internal variable 'root'
 
-	def insert(self,value):
+#search function that will help in adding elements to the binary tree
+	def insert(self,value): 
 		if self.root==None:
 			self.root=node(value)
 		else:
 			self._insert(value,self.root)
-
+#a recursive insert function
 	def _insert(self,value,cur_node):
 		if value<cur_node.value:
 			if cur_node.left_child==None:
@@ -37,6 +40,7 @@ class binary_search_tree:
             print str(cur_node)
             self._print_tree(cur_node.right_child)
 
+#provides details of the height of the tree
 	def height(self):
 		if self.root!=None:
 			return self._height(self.root,0)
@@ -49,6 +53,7 @@ class binary_search_tree:
 			right_child=self._height(cur_node.right_child,cur_height+1)
 			return max(left_height,right_height)
 
+#At this point, the codes helps in searching 
 	def search(self,value):
 		if self.root!=None:
 			return self.__search(value,self.root)
